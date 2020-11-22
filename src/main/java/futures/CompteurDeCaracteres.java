@@ -28,9 +28,9 @@ public class CompteurDeCaracteres implements Callable<ResultatDuCompte> {
         String out = new Scanner(new URL(urlATraiter).openStream(), "UTF-8").useDelimiter("\\A").next();
         
         int nombreDeCaracteres = out.length();
-
-        System.out.printf("L'URL %s compte %d octets %n", urlATraiter, nombreDeCaracteres);
         Duration tempsDeCalcul = Duration.between(start, Instant.now());
+
+        System.out.printf("Il y a %d caractères dans l'URL %s (%s) %n", nombreDeCaracteres, urlATraiter, tempsDeCalcul);
         // On renvoie le résultat du calcul
         return new ResultatDuCompte(nombreDeCaracteres, tempsDeCalcul );
     }
